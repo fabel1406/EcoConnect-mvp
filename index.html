@@ -255,52 +255,7 @@
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         }
-                
-        // PDF Download Functions - Solución para GitHub Pages
-        function openPitchDeck() {
-            // Intentar abrir el PDF directamente
-            const pdfUrl = 'documentos/Pitch_Deck_EcoConnect.pdf';
-            window.open(pdfUrl, '_blank');
-            
-            // Verificar si se pudo abrir después de un breve tiempo
-            setTimeout(() => {
-                if (document.hidden || document.visibilityState === 'hidden') {
-                    // Si la página sigue siendo la principal, significa que no se pudo abrir el PDF
-                    showDocumentUnavailableModal();
-                }
-            }, 1000);
-        }
-
-        function openFinancialModel() {
-            const pdfUrl = 'documentos/Financial_Model_EcoConnect.pdf';
-            window.open(pdfUrl, '_blank');
-            
-            setTimeout(() => {
-                if (document.hidden || document.visibilityState === 'hidden') {
-                    showDocumentUnavailableModal();
-                }
-            }, 1000);
-        }
-
-        function openBusinessPlan() {
-            const pdfUrl = 'documentos/Business_Plan_EcoConnect.pdf';
-            window.open(pdfUrl, '_blank');
-            
-            setTimeout(() => {
-                if (document.hidden || document.visibilityState === 'hidden') {
-                    showDocumentUnavailableModal();
-                }
-            }, 1000);
-        }
         
-        function showDocumentUnavailableModal() {
-            document.getElementById('documentModal').style.display = 'flex';
-        }
-        
-        function closeModal() {
-            document.getElementById('documentModal').style.display = 'none';
-        }
-
         // Initialize theme before page loads
         initTheme();
     </script>
@@ -592,7 +547,7 @@
                             <div><strong>Mercadona</strong> 1,600+ tiendas</div>
                             <div><strong>Carrefour</strong> 180+ hípers</div>
                             <div><strong>Reporting ESG</strong> obligatorio</div>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -673,7 +628,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-primary mb-6">Proyecciones Financieras Conservadoras</h2>
                 <p class="text-xl text-secondary max-w-3xl mx-auto">
-                    Basadas en benchmarks industria B2B SaaS y marketplaces europeos.
+                    Basadas en benchmarks industria B2B SaaS and marketplaces europeos.
                 </p>
             </div>
             
@@ -915,27 +870,27 @@
                     <i class="fas fa-file-powerpoint text-6xl mb-6" style="color: var(--secondary)"></i>
                     <h3 class="text-xl font-bold text-primary mb-4">Pitch Deck</h3>
                     <p class="text-secondary mb-6">12 slides optimizadas para captar atención VCs y conseguir meetings</p>
-                    <button onclick="openPitchDeck()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                    <a href="Pitch_Deck_EcoConnect.pdf" target="_blank" class="btn-primary w-full rounded-lg font-semibold transition-all inline-block text-center py-3">
                         Ver Documento
-                    </button>
+                    </a>
                 </div>
                 
                 <div class="card p-8 rounded-xl text-center">
                     <i class="fas fa-calculator text-6xl mb-6" style="color: var(--secondary)"></i>
                     <h3 class="text-xl font-bold text-primary mb-4">Modelo Financiero</h3>
                     <p class="text-secondary mb-6">Proyecciones 5 años, unit economics, escenarios y análisis sensibilidad</p>
-                    <button onclick="openFinancialModel()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                    <a href="Financial_Model_EcoConnect.pdf" target="_blank" class="btn-primary w-full rounded-lg font-semibold transition-all inline-block text-center py-3">
                         Ver Documento
-                    </button>
+                    </a>
                 </div>
                 
                 <div class="card p-8 rounded-xl text-center">
                     <i class="fas fa-file-alt text-6xl mb-6" style="color: var(--secondary)"></i>
                     <h3 class="text-xl font-bold text-primary mb-4">Business Plan</h3>
                     <p class="text-secondary mb-6">Análisis completo con todos los detalles estratégicos</p>
-                    <button onclick="openBusinessPlan()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                    <a href="Business_Plan_EcoConnect.pdf" target="_blank" class="btn-primary w-full rounded-lg font-semibold transition-all inline-block text-center py-3">
                         Ver Documento
-                    </button>
+                    </a>
                 </div>
             </div>
             
