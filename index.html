@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoConnect - Revolucionando la Economía Circular Europea</title>
+    <meta name="description" content="Marketplace B2B que conecta generadores de residuos orgánicos con transformadores. €25B mercado europeo. Directiva UE 2025 crea demanda obligatoria.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="EcoConnect - €25B Oportunidad Economía Circular">
+    <meta property="og:description" content="Conectamos 1,200+ almazaras con 150+ plantas biogás. Regulación UE crea mercado obligatorio.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://ecoconnect.eu">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            transition: all 0.3s ease;
+        }
+
+        /* Nueva paleta de colores - Modo oscuro como predeterminado */
+         :root {
+            --background: hsl(160 40% 8%);     /* #0D1B17 */
+            --foreground: hsl(210 40% 98%);    /* #F9FAFE */
+            --card: hsl(199 50% 12%);          /* #0F1E25 */
+            --primary: hsl(81 60% 56%);        /* #7DDE54 */
+            --secondary: hsl(184 100% 33%);    /* #00A8A8 */
+            --accent: hsl(184 100% 33%);       /* #00A8A8 */
+            --destructive: hsl(0 62.8% 30.6%); /* #9B2B2B */
+            --border: hsl(199 50% 16%);        /* #142833 */
+            --radius: 0.5rem;
+            --shadow: 0 10px 30px rgba(0,0,0,.25);
+        }
+        
+        [data-theme="light"] 
+{
+            --background: hsl(0 0% 98%);       /* #FAFAFA - Más claro para mejor contraste */
+            --foreground: hsl(210 20% 15%);    /* #222830 - Más oscuro para mejor legibilidad */
+            --card: hsl(0 0% 100%);            /* #FFFFFF - Blanco puro */
+            --primary: hsl(81 60% 40%);        /* #5EBF26 - Verde más oscuro para mejor contraste */
+            --secondary: hsl(184 100% 25%);    /* #008080 - Azul más oscuro */
+            --accent: hsl(184 100% 25%);       /* #008080 - Azul más oscuro */
+            --destructive: hsl(0 75% 45%);     /* #C53030 - Rojo más oscuro */
+            --border: hsl(210 20% 85%);        /* #D5DBE0 - Borde más claro */
+        }
+
+        
+          /* Custom Classes con nueva paleta */
+        .bg-primary { background-color: var(--background); }
+        .bg-secondary { background-color: var(--card); }
+        .bg-tertiary { background-color: var(--border); }
+        .text-primary { color: var(--foreground); }
+        .text-secondary { color: color-mix(in oklab, var(--foreground) 70%, transparent); }
+        .text-muted { color: color-mix(in oklab, var(--foreground) 50%, transparent); }
+        .text-accent { color: var(--secondary); }
+        .bg-accent { background-color: var(--secondary); }
+        .border-custom { border-color: var(--border); }
+        
+        .gradient-bg { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+        }
+        
+        /* Hero section más oscura */
+        .hero-dark {
+            background: linear-gradient(135deg, 
+                color-mix(in oklab, var(--background) 90%, black) 0%, 
+                color-mix(in oklab, var(--card) 95%, black) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        [data-theme="light"] .hero-dark {
+            background: linear-gradient(135deg, 
+                color-mix(in oklab, var(--secondary) 5%, white) 0%, 
+                color-mix(in oklab, var(--primary) 10%, white) 100%);
+            color: var(--foreground);
+        }
+        
+        .gradient-text { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        .glass-effect { 
+            backdrop-filter: blur(16px); 
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        
+        [data-theme="dark"] .glass-effect {
+            background: rgba(10, 40, 40, 0.8);
+        }
+        
+        [data-theme="light"] .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--foreground);
+        }
+        
+        .hover-lift { 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        
+        .hover-lift:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px var(--shadow); 
+        }
+        
+        .card { 
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--border);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+        }
+        
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            background: var(--primary);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle::before {
+            transform: translateX(26px);
+            background: var(--secondary);
+        }
+        
+        .logo-container {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Botones con nueva paleta */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: 0.9rem;
+            border: 0;
+            cursor: pointer;
+            transition: transform 0.15s ease, filter 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--foreground);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--border);
+        }
+        
+        [data-theme="light"] .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        [data-theme="light"] .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Mejoras específicas para modo claro */
+        [data-theme="light"] {
+            color: var(--foreground);
+        }
+        
+        [data-theme="light"] .text-white {
+            color: var(--foreground) !important;
+        }
+        
+        [data-theme="light"] .text-white\/90 {
+            color: color-mix(in oklab, var(--foreground) 90%, transparent) !important;
+        }
+        
+        [data-theme="light"] .text-white\/80 {
+            color: color-mix(in oklab, var(--foreground) 80%, transparent) !important;
+        }
+        
+        [data-theme="light"] .bg-white {
+            background-color: var(--card) !important;
+        }
+        
+        [data-theme="light"] .border-white {
+            border-color: var(--secondary) !important;
+        }
+        
+        [data-theme="light"] .bg-yellow-400 {
+            background-color: var(--primary) !important;
+            color: white !important;
+        }
+    </style>
+    
+    <script>
+        // Theme management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        // PDF Download Functions - Rutas actualizadas
+        function downloadPitchDeckPDF() {
+            const link = document.createElement('a');
+            link.href = 'documentos/Pitch_Deck_EcoConnect.pdf';
+            link.download = 'Pitch_Deck_EcoConnect.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadFinancialModelPDF() {
+            const link = document.createElement('a');
+            link.href = 'documentos/Financial_Model_EcoConnect.pdf';
+            link.download = 'Financial_Model_EcoConnect.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadBusinessPlanPDF() {
+            const link = document.createElement('a');
+            link.href = 'documentos/Business_Plan_EcoConnect.pdf';
+            link.download = 'Business_Plan_EcoConnect.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Initialize theme before page loads
+        initTheme();
+    </script>
+</head>
+
+<body class="bg-primary text-primary">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-custom">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="logo-container">
+                        <img src="logo oficial.png" alt="EcoConnect Logo" class="logo-img">
+                    </div>
+                    <span class="text-2xl font-bold text-primary">EcoConnect</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#oportunidad" class="text-secondary hover:text-accent font-medium transition-colors">Oportunidad</a>
+                    <a href="#solucion" class="text-secondary hover:text-accent font-medium transition-colors">Solución</a>
+                    <a href="#mercado" class="text-secondary hover:text-accent font-medium transition-colors">Mercado</a>
+                    <a href="#inversion" class="text-secondary hover:text-accent font-medium transition-colors">Inversión</a>
+                    <a href="#colabora" class="text-secondary hover:text-accent font-medium transition-colors">Colabora</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <div class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+                        <i class="fas fa-sun absolute left-2 top-1/2 transform -translate-y-1/2 text-xs" style="color: var(--primary)"></i>
+                        <i class="fas fa-moon absolute right-2 top-1/2 transform -translate-y-1/2 text-xs" style="color: var(--secondary)"></i>
+                    </div>
+                    
+                    <a href="#contacto" class="btn-primary px-6 py-3 rounded-lg font-semibold transition-all">
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Ahora más oscura -->
+    <section class="hero-dark text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-8 backdrop-filter backdrop-blur-lg">
+                    <i class="fas fa-bolt mr-2" style="color: var(--primary)"></i>
+                    Directiva Marco Residuos UE aprobada 9 Septiembre 2025 - Oportunidad Única
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Revolucionando la<br>
+                    <span style="color: var(--primary)">Economía Circular</span><br>
+                    Europea
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto">
+                    El primer marketplace B2B especializado que conecta <strong>1,200+ almazaras</strong> con <strong>150+ plantas de biogás</strong> 
+                    mediante IA, blockchain e IoT. <strong>€25B de oportunidad</strong> en un mercado regulado.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#inversion" class="btn-primary px-8 py-4 rounded-lg text-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Ver Oportunidad de Inversión
+                    </a>
+                    <a href="#colabora" class="btn-outline text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center">
+                        <i class="fas fa-handshake mr-3"></i>
+                        Colaborar con Nosotros
+                    </a>
+                    <a href="https://ecoconnect-studioapp-zeta.vercel.app/" target="_blank" class="btn-primary px-8 py-4 rounded-lg text-lg flex items-center justify-center">
+                        <i class="fas fa-eye mr-3"></i>
+                        Ver Demo
+                    </a>
+                </div>
+                
+                <!-- Key Metrics Real -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" style="color: var(--primary)">€25B</div>
+                        <div class="text-white/80">Mercado UE 2030</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" style="color: var(--primary)">2.5M</div>
+                        <div class="text-white/80">Ton/año Alperujo</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" style="color: var(--primary)">65%</div>
+                        <div class="text-white/80">Reciclaje 2035</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" style="color: var(--primary)">€120</div>
+                        <div class="text-white/80">Coste/Ton Actual</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estado del Proyecto -->
+    <section class="py-16" style="background-color: color-mix(in oklab, var(--primary) 20%, transparent); border-left: 4px solid var(--primary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center">
+                <div class="text-center">
+                    <i class="fas fa-info-circle text-3xl mb-4" style="color: var(--primary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-2">Transparencia Total</h3>
+                    <p class="text-secondary max-w-2xl">
+                        <strong>EcoConnect es una oportunidad de inversión validada, no una empresa operativa.</strong> 
+                        Este proyecto presenta investigación exhaustiva del mercado europeo y un plan detallado 
+                        para crear el primer marketplace B2B especializado en valorización de residuos orgánicos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oportunidad Regulatoria -->
+    <section id="oportunidad" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Timing Perfecto: Regulación UE Crea Demanda Obligatoria</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    La Directiva Marco de Residuos aprobada el 9 de septiembre 2025 transforma un sector voluntary en obligatorio.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-xl hover-lift">
+                    <div class="text-4xl mb-4" style="color: var(--destructive)">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Objetivos Obligatorios</h3>
+                    <ul class="text-secondary space-y-2">
+                        <li><strong>55% reciclaje 2025</strong></li>
+                        <li><strong>60% reciclaje 2030</strong></li>
+                        <li><strong>65% reciclaje 2035</strong></li>
+                        <li>Penalizaciones desde enero 2026</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 rounded-xl hover-lift">
+                    <div class="text-4xl mb-4" style="color: var(--secondary)">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Responsabilidad Ampliada</h3>
+                    <ul class="text-secondary space-y-2">
+                        <li>Productores <strong>financian gestión</strong></li>
+                        <li><strong>30 meses</strong> implementación UE</li>
+                        <li>Trazabilidad obligatoria</li>
+                        <li>Sistemas colectivos mandatorios</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 rounded-xl hover-lift">
+                    <div class="text-4xl mb-4" style="color: var(--secondary)">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Taxonomía UE & Green Deal</h3>
+                    <ul class="text-secondary space-y-2">
+                        <li>Valorización = <strong>actividad sostenible</strong></li>
+                        <li><strong>€1T inversión</strong> hasta 2030</li>
+                        <li>Financiación verde preferencial</li>
+                        <li>Ventajas fiscales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema y Solución -->
+    <section id="solucion" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Problema -->
+                <div>
+                    <h2 class="text-4xl font-bold text-primary mb-8">El Problema es Real y Masivo</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--destructive) 20%, transparent);">
+                                <i class="fas fa-euro-sign text-xl" style="color: var(--destructive)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">€300M Anuales Desperdiciados</h3>
+                                <p class="text-secondary">2.5M toneladas alperujo × €120/ton = €300M gastados solo en Andalucía</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--destructive) 20%, transparent);">
+                                <i class="fas fa-trash text-xl" style="color: var(--destructive)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">65% a Vertedero</h3>
+                                <p class="text-secondary">Residuos orgánicos van a vertedero cuando podrían generar valor</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--destructive) 20%, transparent);">
+                                <i class="fas fa-unlink text-xl" style="color: var(--destructive)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">Fragmentación Total</h3>
+                                <p class="text-secondary">1,200+ generadores y 150+ transformadores no se encuentran</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solución -->
+                <div>
+                    <h2 class="text-4xl font-bold text-primary mb-8">Nuestra Solución Tecnológica</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--secondary) 20%, transparent);">
+                                <i class="fas fa-brain text-xl" style="color: var(--secondary)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">Matching IA Químico</h3>
+                                <p class="text-secondary">Algoritmos compatibilidad C/N ratio, pH, humedad optimizados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--secondary) 20%, transparent);">
+                                <i class="fas fa-link text-xl" style="color: var(--secondary)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">Trazabilidad Blockchain</h3>
+                                <p class="text-secondary">Certificados EcoVerified inmutables para compliance automático</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: color-mix(in oklab, var(--secondary) 20%, transparent);">
+                                <i class="fas fa-exchange-alt text-xl" style="color: var(--secondary)"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">Coste → Ingreso</h3>
+                                <p class="text-secondary">Convertir €120/ton coste en €20-40/ton ingreso para generadores</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mercado Validado -->
+    <section id="mercado" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Mercado Validado con Datos Reales</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Hemos investigado exhaustivamente el mercado español como punto de entrada a Europa.
+                </p>
+            </div>
+            
+            <!-- Supply Side -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center text-primary mb-8">GENERADORES (Supply Side)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-xl text-center hover-lift">
+                        <i class="fas fa-seedling text-3xl mb-4" style="color: var(--primary)"></i>
+                        <h4 class="text-xl font-bold text-primary">Almazaras</h4>
+                        <div class="mt-4 space-y-2 text-sm text-secondary">
+                            <div><strong>1,200+</strong> empresas ANIERAC</div>
+                            <div><strong>2.5M ton/año</strong> alperujo Andalucía</div>
+                            <div><strong>€120/ton</strong> coste actual</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-xl text-center hover-lift">
+                        <i class="fas fa-beer text-3xl mb-4" style="color: var(--primary)"></i>
+                        <h4 class="text-xl font-bold text-primary">Cervecerías</h4>
+                        <div class="mt-4 space-y-2 text-sm text-secondary">
+                            <div><strong>400+</strong> asociadas</div>
+                            <div><strong>80K ton/año</strong> bagazo malta</div>
+                            <div><strong>70%</strong> sin salida comercial</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-xl text-center hover-lift">
+                        <i class="fas fa-store text-3xl mb-4" style="color: var(--secondary)"></i>
+                        <h4 class="text-xl font-bold text-primary">Retail</h4>
+                        <div class="mt-4 space-y-2 text-sm text-secondary">
+                            <div><strong>Mercadona</strong> 1,600+ tiendas</div>
+                            <div><strong>Carrefour</strong> 180+ hípers</div>
+                            <div><strong>Reporting ESG</strong> obligatorio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Demand Side -->
+            <div>
+                <h3 class="text-2xl font-bold text-center text-primary mb-8">TRANSFORMADORES (Demand Side)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card p-6 rounded-xl text-center hover-lift">
+                        <i class="fas fa-bolt text-3xl mb-4" style="color: var(--secondary)"></i>
+                        <h4 class="text-xl font-bold text-primary">Plantas Biogás</h4>
+                        <div class="mt-4 space-y-2 text-sm text-secondary">
+                            <div><strong>150+</strong> plantas operativas</div>
+                            <div><strong>500K ton/año</strong> demanda feedstock</div>
+                            <div><strong>€30-50/ton</strong> precio pago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-xl text-center hover-lift">
+                        <i class="fas fa-flask text-3xl mb-4" style="color: var(--secondary)"></i>
+                        <h4 class="text-xl font-bold text-primary">Startups Biomateriales</h4>
+                        <div class="mt-4 space-y-2 text-sm text-secondary">
+                            <div><strong>80+</strong> startups BCN/Madrid</div>
+                            <div><strong>€200M</strong> funding 2020-2025</div>
+                            <div><strong>40%</strong> crecimiento anual</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modelo de Ingresos -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Modelo de Ingresos Diversificado</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Cuatro flujos de ingresos complementarios con alta escalabilidad y márgenes.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card p-6 rounded-xl text-center hover-lift">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="font-bold text-primary mb-2">Comisiones</h3>
+                    <div class="text-3xl font-bold" style="color: var(--secondary)" mb-2">60%</div>
+                    <p class="text-secondary text-sm">3.5% sobre GMV transacciones</p>
+                </div>
+                
+                <div class="card p-6 rounded-xl text-center hover-lift">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="font-bold text-primary mb-2">Suscripciones</h3>
+                    <div class="text-3xl font-bold" style="color: var(--secondary)" mb-2">25%</div>
+                    <p class="text-secondary text-sm">€99/mes plan Premium</p>
+                </div>
+                
+                <div class="card p-6 rounded-xl text-center hover-lift">
+                    <div class="text-4xl mb-4">✅</div>
+                    <h3 class="font-bold text-primary mb-2">Certificación</h3>
+                    <div class="text-3xl font-bold" style="color: var(--secondary)" mb-2">10%</div>
+                    <p class="text-secondary text-sm">€3,500 EcoVerified</p>
+                </div>
+                
+                <div class="card p-6 rounded-xl text-center hover-lift">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="font-bold text-primary mb-2">Data</h3>
+                    <div class="text-3xl font-bold" style="color: var(--secondary)" mb-2">5%</div>
+                    <p class="text-secondary text-sm">€25K/año licencias</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyecciones Financieras -->
+    <section class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Proyecciones Financieras Conservadoras</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Basadas en benchmarks industria B2B SaaS y marketplaces europeos.
+                </p>
+            </div>
+            
+            <div class="overflow-x-auto mb-12">
+                <div class="card rounded-xl shadow-lg overflow-hidden">
+                    <table class="w-full">
+                        <thead style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--foreground);">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-semibold">Métrica</th>
+                                <th class="px-6 py-4 text-center font-semibold">Año 1</th>
+                                <th class="px-6 py-4 text-center font-semibold">Año 2</th>
+                                <th class="px-6 py-4 text-center font-semibold">Año 3</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-primary">
+                            <tr class="border-b border-custom">
+                                <td class="px-6 py-4 font-semibold text-primary">Ingresos (€K)</td>
+                                <td class="px-6 py-4 text-center text-secondary">420</td>
+                                <td class="px-6 py-4 text-center text-secondary">1,345</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--secondary); font-weight: bold;">3,950</td>
+                            </tr>
+                            <tr class="border-b border-custom bg-secondary">
+                                <td class="px-6 py-4 font-semibold text-primary">GMV (€M)</td>
+                                <td class="px-6 py-4 text-center text-secondary">12</td>
+                                <td class="px-6 py-4 text-center text-secondary">35</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--secondary); font-weight: bold;">95</td>
+                            </tr>
+                            <tr class="border-b border-custom">
+                                <td class="px-6 py-4 font-semibold text-primary">EBITDA (€K)</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--destructive);">(445)</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--destructive);">(145)</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--secondary); font-weight: bold;">1,420</td>
+                            </tr>
+                            <tr class="bg-secondary">
+                                <td class="px-6 py-4 font-semibold text-primary">Usuarios Activos</td>
+                                <td class="px-6 py-4 text-center text-secondary">250</td>
+                                <td class="px-6 py-4 text-center text-secondary">750</td>
+                                <td class="px-6 py-4 text-center" style="color: var(--secondary); font-weight: bold;">1,800</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 card rounded-xl">
+                    <div class="text-3xl font-bold" style="color: var(--secondary)">€1,200</div>
+                    <div class="text-secondary font-medium">CAC Blended</div>
+                </div>
+                <div class="text-center p-6 card rounded-xl">
+                    <div class="text-3xl font-bold" style="color: var(--secondary)">€18,500</div>
+                    <div class="text-secondary font-medium">LTV Cliente</div>
+                </div>
+                <div class="text-center p-6 card rounded-xl">
+                    <div class="text-3xl font-bold" style="color: var(--secondary)">15.4x</div>
+                    <div class="text-secondary font-medium">Ratio LTV/CAC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrategia de Inversión -->
+    <section id="inversion" class="py-20" style="background-color: var(--card);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Estrategia de Inversión</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Buscamos financiación en una ronda Serie Seed para validar y escalar la oportunidad más prometedora en la economía circular europea.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">Serie Seed: Aprox a negociar €500K</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: var(--secondary);">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-primary">Desarrollo MVP (40%)</div>
+                                <div class="text-secondary">CTO + equipo desarrollo 6 meses</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: var(--secondary);">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-primary">Validación Mercado (30%)</div>
+                                <div class="text-secondary">Piloto 25 clientes, customer development</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: var(--secondary);">
+                                <i class="fas fa-gavel text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-primary">Legal & Compliance (15%)</div>
+                                <div class="text-secondary">Framework UE, GDPR, protección IP</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: var(--secondary);">
+                                <i class="fas fa-bullhorn text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-primary">Marketing & Outreach (15%)</div>
+                                <div class="text-secondary">Website, campañas, eventos industria</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">Inversores Target</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-xl" style="background-color: var(--background);">
+                            <h4 class="font-bold text-primary mb-2">Seaya Ventures</h4>
+                            <div class="text-sm text-secondary">€400-800K • Impact investing • Madrid</div>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl" style="background-color: var(--background);">
+                            <h4 class="font-bold text-primary mb-2">Kibo Ventures</h4>
+                            <div class="text-sm text-secondary">€300-500K • Tech startups • Barcelona</div>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl" style="background-color: var(--background);">
+                            <h4 class="font-bold text-primary mb-2">Circular Valley</h4>
+                            <div class="text-sm text-secondary">€500-700K • Circular economy • Países Bajos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colaboración con Encuesta -->
+    <section id="colabora" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Buscamos Colaboradores Excepcionales</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Tu experiencia puede acelerar el éxito de EcoConnect. Únete como cofundador, advisor o partner estratégico.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-8 card rounded-xl hover-lift">
+                    <i class="fas fa-user-tie text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="font-bold text-primary mb-4">CTO Cofundador</h3>
+                    <p class="text-secondary text-sm">Liderar desarrollo técnico, arquitectura IA, blockchain. Equity significativo.</p>
+                </div>
+                
+                <div class="text-center p-8 card rounded-xl hover-lift">
+                    <i class="fas fa-handshake text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="font-bold text-primary mb-4">Advisors Industria</h3>
+                    <p class="text-secondary text-sm">Ex-ejecutivos gestión residuos, almazaras, biogás. Network + equity package.</p>
+                </div>
+                
+                <div class="text-center p-8 card rounded-xl hover-lift">
+                    <i class="fas fa-rocket text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="font-bold text-primary mb-4">Partners Estratégicos</h3>
+                    <p class="text-secondary text-sm">Gestoras residuos, asociaciones sectoriales. Partnerships revenue-sharing.</p>
+                </div>
+                
+                <div class="text-center p-8 card rounded-xl hover-lift">
+                    <i class="fas fa-coins text-4xl mb-4" style="color: var(--primary)"></i>
+                    <h3 class="font-bold text-primary mb-4">Business Angels</h3>
+                    <p class="text-secondary text-sm">€25-75K tickets. Expertise sectorial valorado. ROI 8-12x esperado.</p>
+                </div>
+            </div>
+            
+            <!-- Encuesta -->
+            <div class="mt-16 card p-8 rounded-xl">
+                <div class="text-center mb-8">
+                    <i class="fas fa-poll text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="text-2xl font-bold text-primary mb-2">Ayúdanos a transformar la economía circular</h3>
+                    <p class="text-secondary">Tu opinión es crucial para diseñar la plataforma perfecta</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-primary mb-4">Participa en nuestra encuesta</h4>
+                        <p class="text-secondary mb-4">
+                            Invitamos a generadores y transformadores de residuos orgánicos a participar en una breve encuesta (6-8 minutos) que nos ayudará a crear soluciones que reduzcan costes, mejoren la trazabilidad y abran nuevas vías de valorización rentable.
+                        </p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSct2b-iIP88Lmb49zvS-5YGkYYzqhsFCe4eBx0x3LZVu-sYcg/viewform?usp=header" 
+                           target="_blank" 
+                           class="btn-primary inline-flex items-center justify-center w-full py-3">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Acceder a la encuesta
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-primary mb-4">¿Por qué participar?</h4>
+                        <ul class="text-secondary space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-2" style="color: var(--secondary)"></i>
+                                <span>Contribuirás a una plataforma que podría transformar la gestión y comercialización de residuos orgánicos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-2" style="color: var(--secondary)"></i>
+                                <span>Tendrás la opción de participar en el piloto inicial y recibir resultados exclusivos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-2" style="color: var(--secondary)"></i>
+                                <span>La encuesta es anónima (salvo que quieras dejar tus datos) y tus respuestas serán tratadas con total confidencialidad</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-custom text-center">
+                    <p class="text-sm text-muted">
+                        Para más información, contáctanos en <a href="mailto:ecoconnectlat@gmail.com" class="text-accent font-semibold">ecoconnectlat@gmail.com</a> o por Instagram <a href="https://instagram.com/ecoconnectlab" target="_blank" class="text-accent font-semibold">@ecoconnectlab</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentos de Inversión -->
+    <section class="py-20 bg-tertiary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">Documentos de Inversión</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Accede a la documentación completa de la oportunidad de inversión EcoConnect.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-xl text-center">
+                    <i class="fas fa-file-powerpoint text-6xl mb-6" style="color: var(--secondary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-4">Pitch Deck</h3>
+                    <p class="text-secondary mb-6">12 slides optimizadas para captar atención VCs y conseguir meetings</p>
+                    <button onclick="downloadPitchDeckPDF()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                        Descargar
+                    </button>
+                </div>
+                
+                <div class="card p-8 rounded-xl text-center">
+                    <i class="fas fa-calculator text-6xl mb-6" style="color: var(--secondary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-4">Modelo Financiero</h3>
+                    <p class="text-secondary mb-6">Proyecciones 5 años, unit economics, escenarios y análisis sensibilidad</p>
+                    <button onclick="downloadFinancialModelPDF()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                        Descargar
+                    </button>
+                </div>
+                
+                <div class="card p-8 rounded-xl text-center">
+                    <i class="fas fa-file-alt text-6xl mb-6" style="color: var(--secondary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-4">Business Plan</h3>
+                    <p class="text-secondary mb-6">Análisis completo con todos los detalles estratégicos</p>
+                    <button onclick="downloadBusinessPlanPDF()" class="btn-primary w-full rounded-lg font-semibold transition-all">
+                        Descargar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center px-6 py-3 rounded-lg font-semibold" style="background-color: var(--primary); color: var(--foreground);">
+                    <i class="fas fa-lock mr-3"></i>
+                    Documentos disponibles bajo NDA para inversores y colaboradores verificados
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-primary mb-6">Contacta con Nosotros</h2>
+            <p class="text-xl text-secondary mb-12 max-w-2xl mx-auto">
+                ¿Listo para ser parte de la revolución de la economía circular europea? Hablemos.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="p-8 card rounded-xl">
+                    <i class="fas fa-envelope text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-2">Email</h3>
+                    <a href="mailto:ecoconnectlat@gmail.com" style="color: var(--secondary)" class="font-semibold hover:opacity-80 transition-opacity">
+                        ecoconnectlat@gmail.com
+                    </a>
+                    <p class="text-secondary text-sm mt-2">Inversores, colaboradores, partnerships</p>
+                </div>
+                
+                <div class="p-8 card rounded-xl">
+                    <i class="fab fa-instagram text-4xl mb-4" style="color: var(--secondary)"></i>
+                    <h3 class="text-xl font-bold text-primary mb-2">Instagram</h3>
+                    <a href="https://instagram.com/ecoconnectlab" target="_blank" style="color: var(--secondary)" class="font-semibold hover:opacity-80 transition-opacity">
+                        @ecoconnectlab
+                    </a>
+                    <p class="text-secondary text-sm mt-2">Updates, insights, behind-the-scenes</p>
+                </div>
+            </div>
+            
+            <div class="card p-8 rounded-xl">
+                <h3 class="text-xl font-bold text-primary mb-4">¿En qué podemos colaborar?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">Inversión Serie Seed €500K</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">CTO Cofundador position</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">Advisory board expertise</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">Strategic partnerships</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">Customer introductions</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check" style="color: var(--secondary)"></i>
+                        <span class="text-secondary">Regulatory expertise</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tertiary text-secondary py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="logo-container">
+                        <img src="logo oficial.png" alt="EcoConnect Logo" class="logo-img">
+                    </div>
+                    <span class="text-2xl font-bold text-primary">EcoConnect</span>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="mailto:ecoconnectlat@gmail.com" class="text-secondary hover:text-accent transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://instagram.com/ecoconnectlab" target="_blank" class="text-secondary hover:text-accent transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
