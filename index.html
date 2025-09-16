@@ -256,32 +256,49 @@
             localStorage.setItem('theme', newTheme);
         }
         
-        // PDF Download Functions - Rutas actualizadas
-        function downloadPitchDeckPDF() {
-            const link = document.createElement('a');
-            link.href = 'documentos/Pitch_Deck_EcoConnect.pdf';
-            link.download = 'Pitch_Deck_EcoConnect.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        // PDF Download Functions - Solución para GitHub Pages
+        function openPitchDeck() {
+            // Intentar abrir el PDF directamente
+            const pdfUrl = 'documentos/Pitch_Deck_EcoConnect.pdf';
+            window.open(pdfUrl, '_blank');
+            
+            // Verificar si se pudo abrir después de un breve tiempo
+            setTimeout(() => {
+                if (document.hidden || document.visibilityState === 'hidden') {
+                    // Si la página sigue siendo la principal, significa que no se pudo abrir el PDF
+                    showDocumentUnavailableModal();
+                }
+            }, 1000);
         }
 
-        function downloadFinancialModelPDF() {
-            const link = document.createElement('a');
-            link.href = 'documentos/Financial_Model_EcoConnect.pdf';
-            link.download = 'Financial_Model_EcoConnect.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        function openFinancialModel() {
+            const pdfUrl = 'documentos/Financial_Model_EcoConnect.pdf';
+            window.open(pdfUrl, '_blank');
+            
+            setTimeout(() => {
+                if (document.hidden || document.visibilityState === 'hidden') {
+                    showDocumentUnavailableModal();
+                }
+            }, 1000);
         }
 
-        function downloadBusinessPlanPDF() {
-            const link = document.createElement('a');
-            link.href = 'documentos/Business_Plan_EcoConnect.pdf';
-            link.download = 'Business_Plan_EcoConnect.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        function openBusinessPlan() {
+            const pdfUrl = 'documentos/Business_Plan_EcoConnect.pdf';
+            window.open(pdfUrl, '_blank');
+            
+            setTimeout(() => {
+                if (document.hidden || document.visibilityState === 'hidden') {
+                    showDocumentUnavailableModal();
+                }
+            }, 1000);
+        }
+        
+        function showDocumentUnavailableModal() {
+            document.getElementById('documentModal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('documentModal').style.display = 'none';
         }
 
         // Initialize theme before page loads
